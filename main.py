@@ -3,7 +3,8 @@ import sys
 from stats import (
     get_word_count,
     get_character_counts,
-    get_sorted_character_dict)
+    get_sorted_character_dict,
+    chars_dict_to_sorted_list)
 
 def get_book_text(filepath):
    with open(filepath) as file:
@@ -24,16 +25,20 @@ def print_report(file_path, num_of_words, sorted_character_counts):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python3 main.py <path_to_book>")
-        sys.exit(1)
+    # if len(sys.argv) != 2:
+    #    print("Usage: python3 main.py <path_to_book>")
+    #    sys.exit(1)
 
-    file_path = sys.argv[1]
+    # file_path = sys.argv[1]
+    file_path = "books/frankenstein.txt"
     book_contents = get_book_text(file_path)
     num_of_words = get_word_count(book_contents)
     character_counts = get_character_counts(book_contents)
-    sorted_counts = get_sorted_character_dict(character_counts)
-    print_report(file_path, num_of_words, sorted_counts)
+    # sorted_counts = get_sorted_character_dict(character_counts)
+    new_sorted_counts = chars_dict_to_sorted_list(character_counts)
+    print(f"Found {num_of_words} total words")
+    print(new_sorted_counts)
+    # print_report(file_path, num_of_words, sorted_counts)
 
 
 # execute main

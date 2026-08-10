@@ -36,3 +36,16 @@ def get_sorted_character_dict(character_counts):
     sorted_character_counts.sort(reverse=True, key=sort_on)
 
     return sorted_character_counts
+
+def sort_on(input_data):
+    return input_data[1]
+
+def chars_dict_to_sorted_list(input_data):
+    new_list = []
+
+    for key in input_data:
+        count = input_data[key]
+        new_list.append((key, count))
+    sorted_list = sorted(new_list, key=lambda x: x[1], reverse=True)
+    return sorted_list
+    
